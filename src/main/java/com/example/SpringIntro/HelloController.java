@@ -1,9 +1,6 @@
 package com.example.SpringIntro;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
@@ -21,6 +18,13 @@ public class HelloController {
         public String Hello(@RequestParam String name){
             return "Hello " + name+" from Bridgelabz";
         }
+
+    // UC3 - Path Parameters: Handles GET requests at "/{name}" using a path variable.
+    // URL: http://localhost:8080/Divyansh
+    @GetMapping("/{name}")
+    public String sayHelloPath(@PathVariable String name) {
+        return "Hello " + name + " Thanks for using my application";
+    }
 
 
 }
